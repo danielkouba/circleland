@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
+<title>Products</title>
+
+<!-- <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css"> -->
+<!-- <link href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet"> -->
+
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/skeleton.css">
+
+<script src="angular/angular.min.js"></script>
+<script src="angular/angular-route.min.js"></script>
+
+<script src="assets/app.js"></script>
+<script src="assets/factories/productFactory.js"></script>
+<script src="assets/controllers/productController.js"></script>
+<script src="assets/factories/userFactory.js"></script>
+<script src="assets/controllers/userController.js"></script>
+</head>
+<body>
+
+
+<h1>Whirlpool</h1>
+<div class="container">
+<div class="three columns"></div>
+<div ng-view="" class="six columns"></div>
+<div class="two columns"></div>
+</div>
+</body>
+</html>

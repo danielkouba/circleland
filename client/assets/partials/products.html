@@ -1,0 +1,11 @@
+
+<!-- <div ng-controller="productController"> -->
+	<form ng-submit="addproduct()">
+		Name: <input type="text" ng-model="newProduct.name">
+		Quantity: <input type="text" ng-model="newProduct.quantity">
+		<input type="submit" value="Submit Product">
+	</form>
+	<ul>
+		<li ng-repeat="product in products">{{product.name}} - {{product.quantity}}</li>
+	</ul>
+<!-- </div> -->

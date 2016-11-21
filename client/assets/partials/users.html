@@ -1,0 +1,17 @@
+
+<form ng-submit="adduser()">
+	Name: <input type="text" ng-model="newUser.name">
+	<input type="submit" value="Submit User">
+</form>
+<table>
+	<tr>
+		<th>Name:</th>
+		<th>Date Created:</th>
+		<th>Action:</th>
+	</tr>
+	<tr ng-repeat="user in users">
+		<td>{{user.name}}</td>
+		<td>{{user.created_at}}</td>
+		<td><button ng-click="deleteuser(user._id)">Delete</button></td>
+	</tr>
+</table>
