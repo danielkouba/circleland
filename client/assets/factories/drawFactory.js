@@ -117,11 +117,11 @@ myApp.factory('drawFactory', ['p5', function(p5) {
 
 
 
-      document.getElementById("reset").addEventListener("click", function() {
-        var canvas = document.getElementById("defaultCanvas0");
-        var ctx = canvas.getContext("2d");
-        console.log(ctx.getImageData(0, 0, 500, 500))
-      }
+      // document.getElementById("reset").addEventListener("click", function() {
+      //   var canvas = document.getElementById("defaultCanvas0");
+      //   var ctx = canvas.getContext("2d");
+      //   console.log(ctx.getImageData(0, 0, 500, 500))
+      // }
 
     document.getElementById("reset").addEventListener("click", function(){
       console.log("resetting");

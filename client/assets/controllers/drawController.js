@@ -5,7 +5,9 @@ myApp.controller('drawController', function($scope, $log, drawFactory){
   	$scope.controls = {
                         radius: 127,
                         step: .1,
-						speed: 3
+						speed: 3,
+						xslide: 250,
+						yslide: 250
                     };
 
 

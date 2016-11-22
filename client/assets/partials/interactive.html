@@ -31,11 +31,20 @@
 			</div>
 			<div class="control">
 				<label for="">X:</label>
-				<div id="xslide"></div>
+				<!-- <div id="xslide"></div> -->
+				<div ui-slider id="xslide" min="0" max="500" ng-model="controls.xslide"></div>
+                <input type="text" ng-model="controls.xslide" />
+
+
 			</div>
 			<div class="control">
 				<label for="">Y:</label>
-				<div id="yslide"></div>
+				<!-- <div id="yslide"></div> -->
+
+				<div ui-slider id="yslide" min="0" max="500" ng-model="controls.yslide"></div>
+                <input type="text" ng-model="controls.yslide" />
+
+
 			</div>
 			<div class="control">
 			<label for="">Toggle Draw:
