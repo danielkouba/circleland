@@ -24,10 +24,10 @@
 			</div>
 			<div class="control">
 				<label for="">Speed:</label>
-				<div id="speed"></div>
-<!-- 				<div ui-slider id="speed" min="0" max="255" ng-model="controls.speed"></div>
+				<!-- <div id="speed"></div> -->
+				<div ui-slider id="speed" min="0" max="255" ng-model="controls.speed"></div>
                 <input type="text" ng-model="controls.speed" />
- -->
+
 			</div>
 			<div class="control">
 				<label for="">X:</label>
@@ -71,15 +71,7 @@
 				//   // change: example.refreshSwatch
 				// });
 
-				// $( "#step").slider({
-				//   orientation: "horizontal",
-				//   range: "min",
-				//   max: 3,
-				//   step: 0.01,
-				//   value: 6
-				//   // slide: example.refreshSwatch,
-				//   // change: example.refreshSwatch
-				// });
+				$( "#step").slider({ step: 0.01 });
 				$( "#speed").slider({
 				  orientation: "horizontal",
 				  range: "min",

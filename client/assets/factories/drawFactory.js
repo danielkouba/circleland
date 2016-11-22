@@ -1,8 +1,6 @@
 // angular.module('example', ['angular-p5'])
 myApp.factory('drawFactory', ['p5', function(p5) {
-
   return function(p) {
-
     var theta = 0;
     var radius = 127;
     var step = .2;
@@ -127,8 +125,5 @@ myApp.factory('drawFactory', ['p5', function(p5) {
       pointArray = [];
       callback();
     }
-
-
-
   };
 }]);
