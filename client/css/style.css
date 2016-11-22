@@ -1,0 +1,39 @@
+#targetCanvas{
+    display:inline-block;
+}
+.controlpanel{
+    width: 500px;
+    vertical-align: top;
+    display:inline-block; 
+    text-align: center;
+}
+label{
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+#radius, #step, #speed {
+  /*float: left;*/
+  /*clear: left;*/
+  display:inline-block;
+  vertical-align: middle;
+  width: 300px;
+  margin: 15px;
+}
+#swatch {
+  width: 120px;
+  height: 100px;
+  margin-top: 18px;
+  margin-left: 350px;
+  background-image: none;
+}
+#radius .ui-slider-range { background: #ef2929; }
+#radius .ui-slider-handle { border-color: #ef2929; }
+#step .ui-slider-range { background: #8ae234; }
+#step .ui-slider-handle { border-color: #8ae234; }
+#speed .ui-slider-range { background: #729fcf; }
+#speed .ui-slider-handle { border-color: #729fcf; }
+#xslide .ui-slider-range { background: #729fcf; }
+#xslide .ui-slider-handle { border-color: #729fcf; }
+#yslide .ui-slider-range { background: #729fcf; }
+#yslide .ui-slider-handle { border-color: #729fcf; }

@@ -15,20 +15,34 @@
 <script src="angular/angular.min.js"></script>
 <script src="angular/angular-route.min.js"></script>
 
+
+
 <script src="assets/app.js"></script>
 <script src="assets/factories/productFactory.js"></script>
 <script src="assets/controllers/productController.js"></script>
 <script src="assets/factories/userFactory.js"></script>
 <script src="assets/controllers/userController.js"></script>
+
+<!-- Begin Drawing requirements -->
+<link rel="stylesheet" href="css/style.css">	
+<script src="p5js/lib/p5.js"></script>
+<script src="jquery/jquery-3.1.1.min.js"></script>
+<script src="jquery/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="css/jquery-ui.css">
+<script src="assets/controllers/drawController.js"></script>
+<script src="assets/factories/drawFactory.js"></script>
+
+<!-- End Drawing requirements -->
+
+
+
 </head>
 <body>
 
 
 <h1>Whirlpool</h1>
 <div class="container">
-<div class="three columns"></div>
-<div ng-view="" class="six columns"></div>
-<div class="two columns"></div>
+<div ng-view="" class="twelve columns"></div>
 </div>
 </body>
 </html>

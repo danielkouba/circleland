@@ -1,0 +1,111 @@
+<!-- <!DOCTYPE html>
+<html ng-app="example">
+<head>
+  <meta charset="utf-8">
+  <title>angular-p5 example sketch</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="jquery-ui.css">
+</head>
+<body> -->
+
+<div>
+	<div class="six columns">
+		<p5 sketch="drawFactory"></p5>
+  	</div>
+	<div class="six columns">
+		<div class="controlpanel">
+			<div class="control">
+				<label>Radius:</label>
+				<div id="radius"></div>
+			</div>
+			<div class="control">
+				<label for="">Step:</label>
+				<div id="step"></div>
+			</div>
+			<div class="control">
+				<label for="">Speed:</label>
+				<div id="speed"></div>
+			</div>
+			<div class="control">
+				<label for="">X:</label>
+				<div id="xslide"></div>
+			</div>
+			<div class="control">
+				<label for="">Y:</label>
+				<div id="yslide"></div>
+			</div>
+			<div class="control">
+			<label for="">Show Circle:
+				<input type="checkbox" id="circleVisible"></label>
+			<label for="">Sound Reactive:
+				<input type="checkbox" id="soundReactive"></label>
+			<label for="">Radius Visible:
+				<input type="checkbox" id="radiusVisible"></label>
+			</div>
+			<div class="control">
+
+				<button id="toggleDraw">Toggle Draw</button>
+				<button id="capture">Capture</button>
+				<button id="reset" ng-click="reset()">Reset</button>
+			</div>
+		</div>
+	</div>
+
+</div>
+	<script>
+		// $( "#radius").slider({value:127});
+		// $( "#step").slider({value:3});
+		// $( "#speed").slider({value:3});
+		// $( "#xslide").slider({value:250});
+		// $( "#yslide").slider({value:250});
+		// $( document ).ready(function() {
+				$( "#radius").slider({
+				  orientation: "horizontal",
+				  range: "min",
+				  max: 255,
+				  value: 127
+				  // slide: example.refreshSwatch,
+				  // change: example.refreshSwatch
+				});
+
+				$( "#step").slider({
+				  orientation: "horizontal",
+				  range: "min",
+				  max: 3,
+				  step: 0.01,
+				  value: 6
+				  // slide: example.refreshSwatch,
+				  // change: example.refreshSwatch
+				});
+				$( "#speed").slider({
+				  orientation: "horizontal",
+				  range: "min",
+				  max: 30,
+				  value: 3
+				  // slide: example.refreshSwatch,
+				  // change: example.refreshSwatch
+				});
+				$( "#xslide, #yslide").slider({
+				  orientation: "horizontal",
+				  range: "min",
+				  max: 500,
+				  value: 250
+				  // slide: example.refreshSwatch,
+				  // change: example.refreshSwatch
+				});
+
+				// $("#reset").click(function(){
+				// 	// console.log("resetting")
+				// 	// pointArray = [];
+				// 	reset()
+				// });
+				$("#capture").click(function(){
+					captureCanvas();
+				})
+				$("#toggleDraw").click(function(){
+					drawToggle = !drawToggle;
+				})
+
+			// });
+
+	</script>
