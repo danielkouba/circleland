@@ -36,12 +36,13 @@ myApp.factory('drawFactory', ['p5', function(p5) {
 
 
       p.refreshSwatch = function() {
-          // radius = $( "#radius" ).slider( "value" );
-          // step = $( "#step" ).slider( "value" );
-          // speed = $( "#speed" ).slider( "value" );
-          // h = $( "#xslide" ).slider( "value" );
-          // k = $( "#yslide" ).slider( "value" );
+          radius = $( "#radius" ).slider( "value" );
+          step = $( "#step" ).slider( "value" );
+          speed = $( "#speed" ).slider( "value" );
+          h = $( "#xslide" ).slider( "value" );
+          k = $( "#yslide" ).slider( "value" );
           circleVisible = $("#circleVisible")[0].checked;
+          drawToggle = $("#toggleDraw")[0].checked;
           radiusVisible = $("#radiusVisible")[0].checked;
           soundToggle = $("#soundReactive")[0].checked;
       }
@@ -120,9 +121,11 @@ myApp.factory('drawFactory', ['p5', function(p5) {
       }
 
     }
-    p.reset = function(){
-      console.log("resetting")
-      pointArray = []      
+
+    p.reset = function(callback){
+      console.log("resetting");
+      pointArray = [];
+      callback();
     }
 
 

@@ -12,7 +12,7 @@ label{
   font-size: 1.1em;
 }
 
-#radius, #step, #speed {
+#radius, #step, #speed, #xslide, #yslide{
   /*float: left;*/
   /*clear: left;*/
   display:inline-block;
@@ -27,7 +27,7 @@ label{
   margin-left: 350px;
   background-image: none;
 }
-#radius .ui-slider-range { background: #ef2929; }
+/*#radius .ui-slider-range { background: #ef2929; }
 #radius .ui-slider-handle { border-color: #ef2929; }
 #step .ui-slider-range { background: #8ae234; }
 #step .ui-slider-handle { border-color: #8ae234; }
@@ -36,4 +36,4 @@ label{
 #xslide .ui-slider-range { background: #729fcf; }
 #xslide .ui-slider-handle { border-color: #729fcf; }
 #yslide .ui-slider-range { background: #729fcf; }
-#yslide .ui-slider-handle { border-color: #729fcf; }
+#yslide .ui-slider-handle { border-color: #729fcf; }*/
