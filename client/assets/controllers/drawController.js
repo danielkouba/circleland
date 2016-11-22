@@ -9,15 +9,12 @@ myApp.controller('drawController', function($scope, $log, drawFactory){
                     };
 
 
+	// $scope.reset = function(){
+	// 	console.log("resetting drawing from drawController");
+	// 	drawFactory.reset(function(){
 
-
-
-	$scope.reset = function(){
-		console.log("resetting drawing from drawController");
-		drawFactory.reset(function(){
-
-		})
-	}
+	// 	})
+	// }
 
 
   // return drawFactory

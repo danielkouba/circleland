@@ -14,6 +14,8 @@ myApp.factory('drawFactory', ['p5', function(p5) {
     var circleVisible = true;
     var radiusVisible = false;
     var pointArray = [];
+    // var resetclick;
+
 
 
     p.setup = function() {
@@ -43,13 +45,6 @@ myApp.factory('drawFactory', ['p5', function(p5) {
           drawToggle = $("#toggleDraw")[0].checked;
           radiusVisible = $("#radiusVisible")[0].checked;
           soundToggle = $("#soundReactive")[0].checked;
-      }
-
-
-      p.captureCanvas = function() {
-        var canvas = document.getElementById("defaultCanvas0");
-        var ctx = canvas.getContext("2d");
-        console.log(ctx.getImageData(0, 0, 500, 500))
       }
 
       function drawCircle(r,step, h, k){
@@ -120,10 +115,17 @@ myApp.factory('drawFactory', ['p5', function(p5) {
 
     }
 
-    p.reset = function(callback){
+
+
+      document.getElementById("reset").addEventListener("click", function() {
+        var canvas = document.getElementById("defaultCanvas0");
+        var ctx = canvas.getContext("2d");
+        console.log(ctx.getImageData(0, 0, 500, 500))
+      }
+
+    document.getElementById("reset").addEventListener("click", function(){
       console.log("resetting");
       pointArray = [];
-      callback();
-    }
+    })
   };
 }]);
