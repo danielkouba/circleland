@@ -1,5 +1,5 @@
 // angular.module('example', ['angular-p5'])
-myApp.factory('drawFactory', ['p5', function(p5) {
+myApp.factory('drawFactory', ['p5', '$http' , function(p5, $http) {
   return function(p) {
     var theta = 0;
     var radius = 127;
@@ -116,16 +116,23 @@ myApp.factory('drawFactory', ['p5', function(p5) {
     }
 
 
+    document.getElementById("capture").addEventListener("click", function() {
+      var canvas = document.getElementById("defaultCanvas0");
+      // var ctx = canvas.getContext("2d");
+      var img = canvas.toDataURL().toString();
+      img = img.replace('data:image/png;base64,','');
+      img = img.replace(' ','+');
+      console.log('CAPTURE: sent image')
+      $http.post('/draw/create', {data: img}).then(function(returned_data){
+        console.log("From productFactory: "+returned_data.data)
+      })
 
-      // document.getElementById("reset").addEventListener("click", function() {
-      //   var canvas = document.getElementById("defaultCanvas0");
-      //   var ctx = canvas.getContext("2d");
-      //   console.log(ctx.getImageData(0, 0, 500, 500))
-      // }
+
+    });
 
     document.getElementById("reset").addEventListener("click", function(){
       console.log("resetting");
       pointArray = [];
-    })
+    });
   };
 }]);

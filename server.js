@@ -26,8 +26,8 @@ var sessionConfig = {
 
 
 
-app.use(bp.urlencoded({extended:true}));
-app.use(bp.json({extended:true}));
+app.use(bp.urlencoded({limit: '50mb', extended:true}));
+app.use(bp.json({limit: '50mb', extended:true}));
 app.use(express.static(path.join(root,'client')));
 app.use(session(sessionConfig));
 
