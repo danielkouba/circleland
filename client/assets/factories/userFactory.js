@@ -17,12 +17,29 @@ myApp.factory('userFactory', ['$http', function($http){
 	//This function calls the '/users/create' route that posts data to the 
 	// server routes, that interacts with the database to create a new entry
 	factory.createuser = function(user, callback){
-		console.log('Step 07: userFactory > createproducts()')
-		//product is passed as the request body
-		$http.post('/users/create', user).then(function(returned_data){
-			callback();
-		})
+		console.log('Step 07: userFactory > createproducts()');
+
+		$http({
+			method:"POST",
+			url: "/users/create",
+			data: user
+		}).then(function(res){
+			callback(res);
+		});
+
 	};
+
+	factory.loginuser = function(user,callback){
+		$http({
+			method: "POST",
+			url: "/users/login",
+			data: user
+		}).then(function(res){
+			console.log(res);
+			callback(res);
+		})
+	}
+
 	factory.deleteuser = function(user, callback){
 		console.log('Step 08: user Factory > deleteuser()')
 		console.log('userID: '+ user)

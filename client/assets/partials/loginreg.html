@@ -1,7 +1,8 @@
 
 <div class="three columns">
 	<h3>Register</h3>
-	<form ng-submit = 'registerUser(newUser)'>
+	<p ng-repeat='error in regErrors'>{{error.message}}</p>
+	<form ng-submit = 'adduser()'>
 		<input placeholder = "name" type = 'text' ng-model = 'newUser.name'>
 		<input placeholder = "email" type = 'text' ng-model = 'newUser.email'>
 		<input placeholder = "password" type = 'text' ng-model = 'newUser.password'>
@@ -12,7 +13,8 @@
 
 <div class="three columns">
 	<h3>Login</h3>
-	<form ng-submit = 'loginUser(user)'>
+	<p ng-repeat='error in loginErrors'>{{error}}</p>
+	<form ng-submit = 'loginuser()'>
 		<input placeholder = "email" type = 'text' ng-model = 'user.email'>
 		<input placeholder = "password" type = 'text' ng-model = 'user.password'>
 		<input type="submit" name="Login">

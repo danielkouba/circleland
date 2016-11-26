@@ -7,6 +7,9 @@
     display:inline-block; 
     text-align: center;
 }
+  .textcontrol{
+    width:3.5em;
+  }
 label{
   font-weight: bold;
   font-size: 1.1em;
@@ -17,9 +20,10 @@ label{
   /*clear: left;*/
   display:inline-block;
   vertical-align: middle;
-  width: 300px;
+  width: 150px;
   margin: 15px;
 }
+
 .card {
 
 }
@@ -27,6 +31,7 @@ label{
     width:100%;
     height:auto;
   }
+
 .horiz-nav{
     list-style: none;
 }

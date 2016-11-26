@@ -8,7 +8,7 @@
 				<label>Radius:</label>
 
                 <div ui-slider id="radius" min="0" max="255" ng-model="controls.radius"></div>
-                <input type="text" ng-model="controls.radius" />
+                <input type="text" class="textcontrol" ng-model="controls.radius" />
 
 
 			</div>
@@ -18,22 +18,22 @@
 
 				
                 <div ui-slider id="step" min="0.01" max="3" ng-model="controls.step"></div>
-                <input type="text" ng-model="controls.step" />
+                <input type="text" class="textcontrol" ng-model="controls.step" />
 
 
 			</div>
 			<div class="control">
 				<label for="">Speed:</label>
 				<!-- <div id="speed"></div> -->
-				<div ui-slider id="speed" min="0" max="255" ng-model="controls.speed"></div>
-                <input type="text" ng-model="controls.speed" />
+				<div ui-slider id="speed" min="0" max="20" ng-model="controls.speed"></div>
+                <input type="text" class="textcontrol" ng-model="controls.speed" />
 
 			</div>
 			<div class="control">
 				<label for="">X:</label>
 				<!-- <div id="xslide"></div> -->
 				<div ui-slider id="xslide" min="0" max="500" ng-model="controls.xslide"></div>
-                <input type="text" ng-model="controls.xslide" />
+                <input type="text" class="textcontrol" ng-model="controls.xslide" />
 
 
 			</div>
@@ -42,7 +42,7 @@
 				<!-- <div id="yslide"></div> -->
 
 				<div ui-slider id="yslide" min="0" max="500" ng-model="controls.yslide"></div>
-                <input type="text" ng-model="controls.yslide" />
+                <input type="text" class="textcontrol" ng-model="controls.yslide" />
 
 
 			</div>
@@ -50,9 +50,9 @@
 			<label for="">Toggle Draw:
 				<input type="checkbox" id="toggleDraw" checked></label>
 			<label for="">Show Circle:
-				<input type="checkbox" id="circleVisible"></label>
-			<label for="">Sound Reactive:
-				<input type="checkbox" id="soundReactive"></label>
+				<input type="checkbox" id="circleVisible" checked></label>
+			<!-- <label for="">Sound Reactive:
+				<input type="checkbox" id="soundReactive"></label> -->
 			<label for="">Radius Visible:
 				<input type="checkbox" id="radiusVisible"></label>
 			</div>

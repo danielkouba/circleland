@@ -41,6 +41,9 @@ myApp.config(function ($httpProvider, $routeProvider){
 	})
 })
 
+
+
+//This is all setting up the directive and factory for creating a P5 wrapper
 myApp.directive('p5', ['p5WrapperFactory', function(p5WrapperFactory) {
   return {
     restrict: 'EA',

@@ -1,6 +1,6 @@
 console.log('Step 03: userController')
 
-myApp.controller('userController', function($scope, userFactory){
+myApp.controller('userController', function($scope, userFactory, $location){
 
 	// Create a blank array to load users into.
 
@@ -21,20 +21,44 @@ myApp.controller('userController', function($scope, userFactory){
 
 	getUsers();
 
-	//Add a product
-	//This takes data from the front end and passes it to the Product Factory, The Factory passes it through '/products/create' route.
-	//The '/products/create' passes it to the backend controller.
+	//Add a User
+	//This takes data from the front end and passes it to the userFactory, The Factory passes it through '/users/create' route.
+	//The '/users/create' passes it to the backend controller.
 	//The backend Controller interacts with Mongoose and the Model to create a new entry in the Database
 
 	$scope.adduser = function(){
 		console.log('Step 06: userController > adduser()')
-		userFactory.createuser($scope.newUser,function(){
-			console.log("Clear Form and get products")
-			$scope.newUser = {};
-			//This is how we update info without reloading
-			getUsers();
+
+		userFactory.createuser($scope.newUser, function(res){
+			console.log(res.data);
+			if(res.data.hasOwnProperty('errors')){
+				$scope.regErrors = res.data.errors;
+				// $location.path('/loginreg');
+			} else {
+				$location.path('/');
+			}
 		})
+
+		// userFactory.createuser($scope.newUser,function(){
+		// 	console.log("Clear Form and get users")
+		// 	$scope.newUser = {};
+		// 	$location.path('/')
+		// })
 	};
+
+	$scope.loginuser = function(){
+		console.log('>> client >> assets >> controllers.js >> myApp.controller(\'LoginController\') >> $scope.loginUser');		
+		userFactory.loginuser($scope.user, function(res){
+			if(res.data.hasOwnProperty('errors')){
+				$scope.loginErrors = res.data.errors;
+				$location.path('/loginreg');
+			} else {
+				$location.path('/')
+			}		
+		})
+	}
+
+
 	$scope.deleteuser = function(data){
 		console.log('Step 07: userController > deleteuser()')
 		userFactory.deleteuser(data, function(){

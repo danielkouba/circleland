@@ -44,7 +44,7 @@ myApp.factory('drawFactory', ['p5', '$http' , function(p5, $http) {
           circleVisible = $("#circleVisible")[0].checked;
           drawToggle = $("#toggleDraw")[0].checked;
           radiusVisible = $("#radiusVisible")[0].checked;
-          soundToggle = $("#soundReactive")[0].checked;
+          // soundToggle = $("#soundReactive")[0].checked;
       }
 
       function drawCircle(r,step, h, k){
@@ -83,7 +83,6 @@ myApp.factory('drawFactory', ['p5', '$http' , function(p5, $http) {
     }
 
     function drawLine(x,y){
-
         if (drawToggle){      //if drawToggle is true write to line array
             pointArray.push([x,y])
         } else {
