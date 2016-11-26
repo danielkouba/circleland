@@ -28,6 +28,21 @@ function usersController(){
 			}
 		});
 	};
+
+	this.login = function(req,res){
+		console.log('Step 03: UserController Login()')
+		User.findOne({email:req.body.email}).exec(function(err,user){
+			if(user.password != req.body.password){
+				res.sendStatus(400);
+			}else{
+				req.session.user = {
+					name: user.name,
+					_id: user._id
+				}
+				res.send(user);
+			}
+		})
+	},
 	this.delete = function(req, res){
 		//your code here
 		User.remove({_id: req.params.id}, function(err){

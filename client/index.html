@@ -6,33 +6,31 @@
 
 <title>Circlecirclecirles</title>
 
-<!-- <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css"> -->
-<!-- <link href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet"> -->
-
+<!-- CSS Style -->
 <link rel="stylesheet" href="css/normalize.css">
 <link rel="stylesheet" href="css/skeleton.css">
 
+<!-- JQuery for sliders -->
 <script src="jquery/jquery-3.1.1.min.js"></script>
 <script src="jquery/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="css/jquery-ui.css">
 
-
+<!-- Angular -->
 <script src="angular/angular.min.js"></script>
 <script src="angular/angular-route.min.js"></script>
 
-<!-- slider -->
+<!-- sliders -->
 <script src="angular/slider.js"></script>
 <link rel="stylesheet" href="css/style.css">
 
-<!-- <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"> -->
-
-
-
+<!-- Angular Assets -->
 <script src="assets/app.js"></script>
 <script src="assets/factories/productFactory.js"></script>
 <script src="assets/controllers/productController.js"></script>
 <script src="assets/factories/userFactory.js"></script>
 <script src="assets/controllers/userController.js"></script>
+<script src="assets/factories/galleryFactory.js"></script>
+<script src="assets/controllers/galleryController.js"></script>
 
 <!-- Begin Drawing requirements -->
 <link rel="stylesheet" href="css/style.css">	
@@ -41,14 +39,16 @@
 <script src="assets/factories/drawFactory.js"></script>
 
 <!-- End Drawing requirements -->
-
-
-
 </head>
 <body>
 
 
-<h1>Circlecirclecircles</h1>
+<h1>SpaceWriter</h1>
+<ul class="horiz-nav">
+	<li><a href="#/gallery">Gallery</a></li>
+	<li><a href="#/">Draw</a></li>
+	<li><a href="#/loginreg">Login</a></li>
+</ul>
 <div class="container">
 <div ng-view="" class="twelve columns"></div>
 </div>

@@ -20,20 +20,21 @@ label{
   width: 300px;
   margin: 15px;
 }
-#swatch {
-  width: 120px;
-  height: 100px;
-  margin-top: 18px;
-  margin-left: 350px;
-  background-image: none;
+.card {
+
 }
-/*#radius .ui-slider-range { background: #ef2929; }
-#radius .ui-slider-handle { border-color: #ef2929; }
-#step .ui-slider-range { background: #8ae234; }
-#step .ui-slider-handle { border-color: #8ae234; }
-#speed .ui-slider-range { background: #729fcf; }
-#speed .ui-slider-handle { border-color: #729fcf; }
-#xslide .ui-slider-range { background: #729fcf; }
-#xslide .ui-slider-handle { border-color: #729fcf; }
-#yslide .ui-slider-range { background: #729fcf; }
-#yslide .ui-slider-handle { border-color: #729fcf; }*/
+  .card > img{
+    width:100%;
+    height:auto;
+  }
+.horiz-nav{
+    list-style: none;
+}
+  .horiz-nav > li{
+    display: inline-block;
+  }
+  .horiz-nav a {
+    color:#777777;
+    text-decoration: none;
+
+  }

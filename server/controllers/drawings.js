@@ -21,18 +21,14 @@ function drawingsController(){
 	//Product factory calls the route '/products/create' which calls this function
 	this.create = function(req,res){
 		//This is a mongoose command
-
-
 		console.log('/////Creating New Image');
-		var saveBase = "../images/"+filename()+".png";
-		var saveLoc = path.join(root, saveBase);
+		// Set up File Path
+		var saveBase = "/images/"+filename()+".png";
+		var saveLoc = path.join(root, "../../client/assets"+ saveBase);
+		// Format Base64 to Byte Array, Then from Base64 to binary
 		var base64Data = base64.toByteArray(req.body.data);
-		// var img = req.body.data;
-		// console.log(img[0])
-
 		var binaryData  =   new Buffer(base64Data, 'base64').toString('binary');
-
-		console.log(root);
+		//Save out file
 		fs.writeFile(saveLoc, binaryData, "binary", function(err) {
 		   	if(err) {
 		        console.log(err);

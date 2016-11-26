@@ -12,4 +12,5 @@ module.exports = function(app){
 	app.post('/users/create', users.create);  //Create a new product
 	app.get('/users/:id', users.delete);  //Create a new product
 	app.post('/draw/create', draw.create); //Create a drawing
+	app.get('/draw', draw.index); //Create a drawing
 }

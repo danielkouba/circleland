@@ -17,20 +17,25 @@ myApp.config(function ($httpProvider, $routeProvider){
 
 	$routeProvider
 	.when('/',{
-		templateUrl: 'assets/partials/products.html',
-		controller: 'productController',	
-		controllerAs: 'PC'
-	})
-	.when('/user', {
+    templateUrl: 'assets/partials/interactive.html',
+    controller: 'drawController', 
+    controllerAs: 'DC'
+  })
+  .when('/loginreg', {
+    templateUrl: 'assets/partials/loginreg.html',
+    controller: 'userController', 
+    controllerAs: 'UC'
+  })
+	.when('/admin', {
 		templateUrl: 'assets/partials/users.html',
 		controller: 'userController',	
 		controllerAs: 'UC'
 	})
-	.when('/draw', {
-		templateUrl: 'assets/partials/interactive.html',
-		controller: 'drawController',	
-		controllerAs: 'DC'
-	})
+  .when('/gallery', {
+    templateUrl: 'assets/partials/gallery.html',
+    controller: 'galleryController', 
+    controllerAs: 'GC'
+  })
 	.otherwise({
 		redirectTo: '/'
 	})
