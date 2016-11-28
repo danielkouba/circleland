@@ -1,11 +1,18 @@
 TODO
-	Add User login
+	//Add User login
 	While user logs in save their drawing in a session
 	Create Clear button And RESET button
 	Style Controls
 	Expand images
-	Add User name by gallery
-	Add User personal page
+	//Add User name by gallery
+	//Add User personal page
 	Add ability to like
 	Add privileges
 	Deploy
+
+
+
+	MUST FIX
+	synchronous require of jscolor
+	thumbnails to full view
+	Login/logout/disable controls

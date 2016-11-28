@@ -3,6 +3,8 @@ console.log('Step 02: Load User Controller')
 
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
+var Draw = mongoose.model('Draw');
+
 
 function usersController(){
 	//View all products
@@ -44,12 +46,28 @@ function usersController(){
 				console.log('There were validation errors', err);
 				res.json(err);
 			} else {
-				console.log('Successfully added a user!');
 				res.json(result);
 			}
 		});
 	};
 
+
+	this.drawings = function(req,res){
+		User.findOne({_id: req.params.id }, false, true).populate('images').exec(function(err, drawings){
+			// console.log(" User's Drawings ");
+			// console.log(drawings.name);
+			// console.log("Number of drawings: " + drawings.images.length);
+
+			var data = {
+				name: drawings.name,
+				quantity: drawings.images.length,
+				images: drawings.images
+			}
+
+			res.json(data);
+		})
+	}
+	
 
 
 
@@ -77,7 +95,13 @@ function usersController(){
 						name: user.name,
 						_id: user._id
 					}
-					res.send(user);
+					var userdata = {
+						name: user.name,
+						_id: user._id,
+						admin: user.admin	
+					}
+
+					res.send(userdata);
 				}
 			}
 		})

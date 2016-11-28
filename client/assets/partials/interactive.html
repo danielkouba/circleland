@@ -29,23 +29,16 @@
                 <input type="text" class="textcontrol" ng-model="controls.speed" />
 
 			</div>
-			<div class="control">
+<!-- 			<div class="control">
 				<label for="">X:</label>
-				<!-- <div id="xslide"></div> -->
 				<div ui-slider id="xslide" min="0" max="500" ng-model="controls.xslide"></div>
                 <input type="text" class="textcontrol" ng-model="controls.xslide" />
-
-
 			</div>
 			<div class="control">
 				<label for="">Y:</label>
-				<!-- <div id="yslide"></div> -->
-
 				<div ui-slider id="yslide" min="0" max="500" ng-model="controls.yslide"></div>
                 <input type="text" class="textcontrol" ng-model="controls.yslide" />
-
-
-			</div>
+			</div> -->
 			<div class="control">
 			<label for="">Toggle Draw:
 				<input type="checkbox" id="toggleDraw" checked></label>
@@ -56,6 +49,10 @@
 			<label for="">Radius Visible:
 				<input type="checkbox" id="radiusVisible"></label>
 			</div>
+
+			<div class="control">Line Color: <input class="jscolor" id="linecolor" value="646464"></div>
+			<div class="control">Background Color: <input class="jscolor" id="bgcolor" value="FAFAFA"></div>
+
 			<div class="control">
 				<button id="capture">Capture</button>
 				<button id="reset" ng-click="reset()">Reset</button>
@@ -77,3 +74,4 @@
 				});
 
 	</script>
+	<script src="scripts/jscolor.js"></script>

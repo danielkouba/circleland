@@ -9,7 +9,6 @@
 <!-- CSS Style -->
 <link rel="stylesheet" href="css/normalize.css">
 <link rel="stylesheet" href="css/skeleton.css">
-
 <!-- JQuery for sliders -->
 <script src="jquery/jquery-3.1.1.min.js"></script>
 <script src="jquery/jquery-ui.min.js"></script>
@@ -45,6 +44,8 @@
 	<li><a href="#/gallery">Gallery</a></li>
 	<li><a href="#/">Draw</a></li>
 	<li><a href="#/loginreg">Login</a></li>
+	<!-- <li><p ng-bind="">{{userdata.name}}</p></li> -->
+	<li><p ng-bind="userdata.name"></p></li>
 </ul>
 <div class="container">
 <div ng-view="" class="twelve columns"></div>

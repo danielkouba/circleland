@@ -36,6 +36,11 @@ myApp.config(function ($httpProvider, $routeProvider){
     controller: 'galleryController', 
     controllerAs: 'GC'
   })
+  .when('/gallery/:userid/user', {
+    templateUrl: 'assets/partials/usergallery.html',
+    controller: 'galleryController', 
+    controllerAs: 'GC'
+  })
 	.otherwise({
 		redirectTo: '/'
 	})

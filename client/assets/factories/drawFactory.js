@@ -14,6 +14,8 @@ myApp.factory('drawFactory', ['p5', '$http' , function(p5, $http) {
     var circleVisible = true;
     var radiusVisible = false;
     var pointArray = [];
+    var lineColor = [100,100,100];
+    var bgColor = [250,250,250];
     // var resetclick;
 
 
@@ -26,7 +28,7 @@ myApp.factory('drawFactory', ['p5', '$http' , function(p5, $http) {
 
     p.draw = function() {
         //Change Background color
-        p.background(250);
+        p.background(bgColor);
 
         p.refreshSwatch() 
 
@@ -39,12 +41,15 @@ myApp.factory('drawFactory', ['p5', '$http' , function(p5, $http) {
           radius = $( "#radius" ).slider( "value" );
           step = $( "#step" ).slider( "value" );
           speed = $( "#speed" ).slider( "value" );
-          h = $( "#xslide" ).slider( "value" );
-          k = $( "#yslide" ).slider( "value" );
+          // h = $( "#xslide" ).slider( "value" );
+          // k = $( "#yslide" ).slider( "value" );
           circleVisible = $("#circleVisible")[0].checked;
           drawToggle = $("#toggleDraw")[0].checked;
           radiusVisible = $("#radiusVisible")[0].checked;
+          lineColor = $("#linecolor").css("background-color")
+          bgColor = $("#bgcolor").css("background-color")
           // soundToggle = $("#soundReactive")[0].checked;
+          // console.log($("#linecolor").css("background-color"))
       }
 
       function drawCircle(r,step, h, k){
@@ -105,7 +110,7 @@ myApp.factory('drawFactory', ['p5', '$http' , function(p5, $http) {
           var y1 = pointArray[myline][1];
           var x2 = pointArray[myline+1][0];
           var y2 = pointArray[myline+1][1];
-          p.stroke(100);
+          p.stroke(lineColor);
           p.line(x1,y1,x2,y2);
 
         }
@@ -133,5 +138,6 @@ myApp.factory('drawFactory', ['p5', '$http' , function(p5, $http) {
       console.log("resetting");
       pointArray = [];
     });
+
   };
 }]);

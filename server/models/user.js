@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 var userSchema = new mongoose.Schema({
 	name: { type: String, required: true, trim: true },
@@ -15,8 +16,9 @@ var userSchema = new mongoose.Schema({
 			},
 				message: "Password failed validation, you must have at least 1 number, uppercase and special character"
 		}
-	}
-	// drawings: []
+	},
+	images: [{ type: Schema.Types.ObjectId, ref: 'Draw'}],
+	admin: {type: Boolean, default: false}
 },{
 	timestamps:{
 		createdAt: 'created_at',

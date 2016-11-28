@@ -6,15 +6,45 @@ var fs 		= require('fs');
 var path 	= require('path');
 var root	= __dirname;
 var Draw = mongoose.model('Draw');
+var User = mongoose.model('User');
+
+
+
+
+//This is what the session user looks like
+	// req.session.user = {
+	// 	name: user.name,
+	// 	_id: user._id
+	// }
+
+
+
+
 
 function drawingsController(){
 	//View all drawings
 	this.index = function(req,res){ // app.get('/products', products.index);
-		Draw.find({}).exec(function(err, drawings){
+		Draw.find({}, false, true).populate('_user').exec(function(err, drawings){
 			console.log('Step 00: drawingsController > index()')
-			res.json(drawings);
+			
+			//Cleanse of any sensitive data
+			var data = [];
+			for (idx in drawings){
+				data.push({
+					_id: drawings[idx]._id,
+					created_at: drawings[idx].created_at,
+					url: drawings[idx].url,
+					_user: {
+						_id: drawings[idx]._user._id,
+						name: drawings[idx]._user.name
+					}
+				})
+			}
+			console.log(data)
+			res.json(data);
 		})
 	}
+
 	//Create a new product
 	// app.post('/products/create', products.create);  
 	//The data comes from the front end, goes through product controller, to product factory
@@ -39,17 +69,30 @@ function drawingsController(){
 
 
 		var newDrawing = new Draw();
+		newDrawing._user = req.session.user._id;
 		newDrawing.url = saveBase;
-
 		newDrawing.save(function(err,result){
 			console.log('Step 01: drawingController > create()')
 			if(err){
 				console.log('Failed to add Drawing');
 				res.json(err);
 			}else{
-				console.log('Successfully added Drawing');
-				console.log(result);
-				res.json(result);
+				User.findOne({ _id: req.session.user._id }).exec(function(err,user){ //find gallery user
+					if(err){
+						res.json(err)
+					}else{
+						user.images.push(newDrawing._id); //Push the image id to the user
+						user.save(function(err,results){
+							if(err){
+								res.json(err)
+							}else{
+								console.log('Successfully added Drawing');
+								console.log(result);
+								res.json(result);
+							}
+						})
+					}
+				})
 			}
 		});
 	};

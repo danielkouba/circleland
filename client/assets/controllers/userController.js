@@ -35,7 +35,10 @@ myApp.controller('userController', function($scope, userFactory, $location){
 				$scope.regErrors = res.data.errors;
 				// $location.path('/loginreg');
 			} else {
-				$location.path('/');
+
+				$scope.regMessage = {message: "Successfully Signed up. Please log in to continue"};
+				$scope.newUser = {};
+				// $location.path('/loginreg');
 			}
 		})
 
@@ -53,9 +56,15 @@ myApp.controller('userController', function($scope, userFactory, $location){
 				$scope.loginErrors = res.data.errors;
 				$location.path('/loginreg');
 			} else {
-				$location.path('/')
+				console.log(res.data);
+				$scope.userdata = res.data;
+				$location.path('/');
 			}		
 		})
+	}
+
+	$scope.logout = function(){
+		
 	}
 
 

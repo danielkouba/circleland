@@ -1,0 +1,7 @@
+<fieldset>
+	<legend><h2><a href="#/gallery">Gallery</a> >> {{userdata.name}}</h2></legend>
+	<h4>Posts: {{userdata.quantity}}</h4>
+	<div class="three columns card" ng-repeat="image in userdata.images">
+		<img ng-src="assets{{image.url}}" alt="">
+	</div>
+</fieldset>

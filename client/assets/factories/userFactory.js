@@ -35,7 +35,6 @@ myApp.factory('userFactory', ['$http', function($http){
 			url: "/users/login",
 			data: user
 		}).then(function(res){
-			console.log(res);
 			callback(res);
 		})
 	}

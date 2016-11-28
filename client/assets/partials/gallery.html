@@ -1,7 +1,9 @@
-<fieldset>
+<fieldset data-ng-init="getDrawings()">
 	<legend><h2>Gallery</h2></legend>
-	<div class="three columns card" ng-repeat="image in drawings">
-		<img src="assets{{image.url}}" alt="">
+	<div class="six columns">&nbsp;</div><div class="three columns"><input type="text" placeholder="Search" ng-model="searchText"></div>
+	<div class="three columns card" ng-repeat="image in drawings | orderBy:'created_at':true | filter:searchText">
+		<img ng-src="assets{{image.url}}" alt="">
+		<p><a href="#/gallery/{{image._user._id}}/user">{{image._user.name}}</a></p>
 	</div>
 </fieldset>
 

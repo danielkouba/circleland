@@ -11,6 +11,11 @@ myApp.factory('galleryFactory', ['$http', function($http){
 			callback(returned_data.data);
 		})
 	};
+	factory.getusersdrawings = function(userid, callback){
+		$http.get('/users/'+userid+'/gallery').then(function(returned_data){
+			callback(returned_data.data);
+		})
+	}
 
 
 	return factory
