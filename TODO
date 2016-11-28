@@ -13,6 +13,7 @@ TODO
 
 
 	MUST FIX
+	Add success message for capture
 	synchronous require of jscolor
 	thumbnails to full view
 	Login/logout/disable controls

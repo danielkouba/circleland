@@ -1,6 +1,6 @@
-myApp.controller('drawController', function($scope, $log, drawFactory){
+myApp.controller('drawController', function($scope, $log, $localStorage, drawFactory){
   	console.log("Step 00: drawController")
-	
+	$scope.$storage = $localStorage;
 
   	$scope.controls = {
                         radius: 127,

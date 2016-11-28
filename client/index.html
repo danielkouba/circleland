@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 
-<title>Circlecirclecirles</title>
+<title>SpaceWriter</title>
 
 <!-- CSS Style -->
 <link rel="stylesheet" href="css/normalize.css">
@@ -13,7 +13,6 @@
 <script src="jquery/jquery-3.1.1.min.js"></script>
 <script src="jquery/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="css/jquery-ui.css">
-
 <!-- Angular -->
 <script src="angular/angular.min.js"></script>
 <script src="angular/angular-route.min.js"></script>
@@ -26,8 +25,11 @@
 <script src="assets/app.js"></script>
 <script src="assets/factories/userFactory.js"></script>
 <script src="assets/controllers/userController.js"></script>
+<script src="assets/controllers/logoutController.js"></script>
 <script src="assets/factories/galleryFactory.js"></script>
 <script src="assets/controllers/galleryController.js"></script>
+<script src="angular/ngStorage.min.js"></script>
+
 
 <!-- Begin Drawing requirements -->
 <link rel="stylesheet" href="css/style.css">	
@@ -43,9 +45,10 @@
 	<li><h1>SpaceWriter</h1></li>
 	<li><a href="#/gallery">Gallery</a></li>
 	<li><a href="#/">Draw</a></li>
-	<li><a href="#/loginreg">Login</a></li>
+	<li><a href="#/loginreg" ng-show="$storage.user.name!=null">Login</a></li>
+	<li><a href="#/logout">Logout</a></li>
+	<li><a href="#/logout">{{$storage.user.name}}</a></li>
 	<!-- <li><p ng-bind="">{{userdata.name}}</p></li> -->
-	<li><p ng-bind="userdata.name"></p></li>
 </ul>
 <div class="container">
 <div ng-view="" class="twelve columns"></div>

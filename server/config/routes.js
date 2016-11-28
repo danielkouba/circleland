@@ -19,6 +19,7 @@ function loginAuthentication(req,res,next){
 module.exports = function(app){
 	app.post('/users/create', users.register);  	//Create a new user
 	app.post('/users/login', users.login);  		//Login a user
+	app.post('/users/logout', users.logout);  		//Logout a user
 	app.get('/draw', draw.index); 					//Get all drawings
 	app.get('/users', users.index);					//View all users
 	app.get('/users/:id/gallery', users.drawings);	//View users drawings

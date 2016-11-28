@@ -138,6 +138,5 @@ myApp.factory('drawFactory', ['p5', '$http' , function(p5, $http) {
       console.log("resetting");
       pointArray = [];
     });
-
   };
 }]);

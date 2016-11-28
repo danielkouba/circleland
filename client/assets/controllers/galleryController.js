@@ -1,11 +1,12 @@
 console.log('Step 03: galleryController')
 
-myApp.controller('galleryController', function($scope, $location, $routeParams, galleryFactory){
+myApp.controller('galleryController', function($scope, $location, $routeParams, $localStorage, galleryFactory){
 
 	// Create a blank array to load drawings into.
 
 	$scope.drawings = [];
-
+	$scope.$storage = $localStorage;
+	// console.log("Local Storage:", $localStorage);
 	// Create a function that links to the factory
 	// The Factory links to 
 
@@ -23,7 +24,6 @@ myApp.controller('galleryController', function($scope, $location, $routeParams, 
 
 
 	// Load all images in
-	// getDrawings();
 
 	function getUsersDrawings(userid){
 		console.log($scope.userdata);

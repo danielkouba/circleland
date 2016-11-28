@@ -39,6 +39,16 @@ myApp.factory('userFactory', ['$http', function($http){
 		})
 	}
 
+	factory.logoutuser = function(user,callback){
+		$http({
+			method: "POST",
+			url: "/users/logout",
+			data: user
+		}).then(function(res){
+			callback(res);
+		})
+	}
+
 	factory.deleteuser = function(user, callback){
 		console.log('Step 08: user Factory > deleteuser()')
 		console.log('userID: '+ user)

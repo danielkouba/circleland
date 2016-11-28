@@ -1,11 +1,11 @@
 console.log('Step 03: userController')
 
-myApp.controller('userController', function($scope, userFactory, $location){
+myApp.controller('userController', function($scope, $location, $localStorage,userFactory){
 
 	// Create a blank array to load users into.
 
 	$scope.users = [];
-
+	$scope.$storage = $localStorage.$default({"user": {"name":null,"_id":null,"admin":false}});
 	// Create a function that links to the factory
 	// The Factory links to 
 
@@ -17,7 +17,7 @@ myApp.controller('userController', function($scope, userFactory, $location){
 	}	
 
 
-	// Load all products in
+	// Load all users in
 
 	getUsers();
 
@@ -33,20 +33,12 @@ myApp.controller('userController', function($scope, userFactory, $location){
 			console.log(res.data);
 			if(res.data.hasOwnProperty('errors')){
 				$scope.regErrors = res.data.errors;
-				// $location.path('/loginreg');
 			} else {
 
 				$scope.regMessage = {message: "Successfully Signed up. Please log in to continue"};
 				$scope.newUser = {};
-				// $location.path('/loginreg');
 			}
 		})
-
-		// userFactory.createuser($scope.newUser,function(){
-		// 	console.log("Clear Form and get users")
-		// 	$scope.newUser = {};
-		// 	$location.path('/')
-		// })
 	};
 
 	$scope.loginuser = function(){
@@ -56,15 +48,13 @@ myApp.controller('userController', function($scope, userFactory, $location){
 				$scope.loginErrors = res.data.errors;
 				$location.path('/loginreg');
 			} else {
-				console.log(res.data);
-				$scope.userdata = res.data;
+				// $localStorage.user = res.data;
+				$scope.$storage.user = res.data;
+				console.log($localStorage);
+				console.log($scope);
 				$location.path('/');
 			}		
 		})
-	}
-
-	$scope.logout = function(){
-		
 	}
 
 

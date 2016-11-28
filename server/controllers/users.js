@@ -7,17 +7,13 @@ var Draw = mongoose.model('Draw');
 
 
 function usersController(){
-	//View all products
+	//View all users
 	this.index = function(req,res){ // app.get('/products', products.index);
 		User.find({}).exec(function(err, users){
 			console.log('Step 00: usersController > index()')
 			res.json(users);
 		})
 	}
-	//Create a new product
-	// app.post('/products/create', products.create);  
-	//The data comes from the front end, goes through product controller, to product factory
-	//Product factory calls the route '/products/create' which calls this function
 	// this.register = function(req,res){
 	// 	console.log('>> server >> controllers >> user.js >> register: ')
 	// 	if(req.body.password != req.body.pw_confirm){
@@ -74,12 +70,10 @@ function usersController(){
 	this.login = function(req,res){
 		console.log('Step 03: UserController Login()')
 
-
 		//define error message
 		var errors = {errors:{
 			general: 'Invalid login information'
 		}}
-
 
 		User.findOne({email:req.body.email}).exec(function(err,user){
 			
@@ -106,6 +100,10 @@ function usersController(){
 			}
 		})
 	},
+	this.logout = function(req,res){
+		req.session.user = {};
+		res.send("You successfully logged out")
+	}
 	this.delete = function(req, res){
 		//your code here
 		User.remove({_id: req.params.id}, function(err){
