@@ -39,15 +39,15 @@
 
 <!-- End Drawing requirements -->
 </head>
-<body>
+<body ng-controller="userController">
 
 <ul class="horiz-nav">
 	<li><h1>SpaceWriter</h1></li>
 	<li><a href="#/gallery">Gallery</a></li>
 	<li><a href="#/">Draw</a></li>
-	<li><a href="#/loginreg" ng-show="$storage.user.name!=null">Login</a></li>
-	<li><a href="#/logout">Logout</a></li>
-	<li><a href="#/logout">{{$storage.user.name}}</a></li>
+	<li><a href="#/loginreg" ng-hide="$storage.user.name!=null">Login</a></li>
+	<li><a href="#/logout" ng-show="$storage.user.name!=null">Logout</a></li>
+	<!-- <li><a href="#/logout">{{$storage.user.name}}</a></li> -->
 	<!-- <li><p ng-bind="">{{userdata.name}}</p></li> -->
 </ul>
 <div class="container">

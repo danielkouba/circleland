@@ -1,5 +1,5 @@
 // angular.module('example', ['angular-p5'])
-myApp.factory('drawFactory', ['p5', '$http' , function(p5, $http) {
+myApp.factory('drawFactory', ['p5','$http', function(p5, $http) {
   return function(p) {
     var theta = 0;
     var radius = 127;
@@ -16,9 +16,10 @@ myApp.factory('drawFactory', ['p5', '$http' , function(p5, $http) {
     var pointArray = [];
     var lineColor = [100,100,100];
     var bgColor = [250,250,250];
+    var currentImages = []
     // var resetclick;
 
-
+    
 
     p.setup = function() {
         p.createCanvas(500, 500);
@@ -46,8 +47,8 @@ myApp.factory('drawFactory', ['p5', '$http' , function(p5, $http) {
           circleVisible = $("#circleVisible")[0].checked;
           drawToggle = $("#toggleDraw")[0].checked;
           radiusVisible = $("#radiusVisible")[0].checked;
-          lineColor = $("#linecolor").css("background-color")
-          bgColor = $("#bgcolor").css("background-color")
+          // lineColor = $("#linecolor").css("background-color")
+          // bgColor = $("#bgcolor").css("background-color")
           // soundToggle = $("#soundReactive")[0].checked;
           // console.log($("#linecolor").css("background-color"))
       }
@@ -128,7 +129,10 @@ myApp.factory('drawFactory', ['p5', '$http' , function(p5, $http) {
       img = img.replace(' ','+');
       console.log('CAPTURE: sent image')
       $http.post('/draw/create', {data: img}).then(function(returned_data){
-        console.log("From productFactory: "+returned_data.data)
+        console.log(returned_data.data)
+        // currentImages.push(returned_data.data.url)
+        var card = "  <div class=\"three columns card\"><img ng-src=\"assets/"+returned_data.data.url+"\"></div>"
+        // document.getElementById("drawGallery").innerHTML = card
       })
 
 
@@ -138,5 +142,21 @@ myApp.factory('drawFactory', ['p5', '$http' , function(p5, $http) {
       console.log("resetting");
       pointArray = [];
     });
+
+
+    // function alertmsg(keypressed){
+    //   alert(keypressed)
+    // }
+    // document.getElementById("controlpanel").onkeypress=alertmsg(event)
+    // document.getElementById("controlpanel").onkeydown = function(e){
+    //     var key = e.keyCode;
+    //     if ( key == "32" ){
+    //       // if (worldSense(pacman.x-1,pacman.y) != "wall"){
+    //         // pacman.x--;
+    //         // eater();
+    //         alert(key)
+    //       }
+    //     console.log(e.keyCode)
+    //   }
   };
 }]);

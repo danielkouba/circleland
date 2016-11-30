@@ -6,8 +6,8 @@
 	<form ng-submit = 'adduser()'>
 		<input placeholder = "name" type = 'text' ng-model = 'newUser.name'>
 		<input placeholder = "email" type = 'text' ng-model = 'newUser.email'>
-		<input placeholder = "password" type = 'text' ng-model = 'newUser.password'>
-		<input placeholder = "password confirmation" type = 'text' ng-model = 'newUser.pw_confirm'>
+		<input placeholder = "password" type = 'password' ng-model = 'newUser.password'>
+		<input placeholder = "password confirmation" type = 'password' ng-model = 'newUser.pw_confirm'>
 		<input type="submit" name="Register">
 	</form>
 </div>
@@ -17,7 +17,7 @@
 	<p ng-repeat='error in loginErrors'>{{error}}</p>
 	<form ng-submit = 'loginuser()'>
 		<input placeholder = "email" type = 'text' ng-model = 'user.email'>
-		<input placeholder = "password" type = 'text' ng-model = 'user.password'>
+		<input placeholder = "password" type = 'password' ng-model = 'user.password'>
 		<input type="submit" name="Login">
 	</form>
 </div>

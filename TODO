@@ -14,6 +14,8 @@ TODO
 
 	MUST FIX
 	Add success message for capture
-	synchronous require of jscolor
+	synchronous require of jscolor--temporarily removed
 	thumbnails to full view
 	Login/logout/disable controls
+		Storing user info locally means that the server could log a user out 
+		without their localStorage being cleared out. 
