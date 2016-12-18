@@ -19,3 +19,9 @@ TODO
 	Login/logout/disable controls
 		Storing user info locally means that the server could log a user out 
 		without their localStorage being cleared out. 
+
+
+	Before Deploying
+		encryption for passwords
+		messages for capture
+		make it responsive

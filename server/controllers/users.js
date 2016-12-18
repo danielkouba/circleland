@@ -2,6 +2,7 @@ console.log('Step 02: Load User Controller')
 
 
 var mongoose = require('mongoose');
+var bcrypt = require('bcrypt');
 var User = mongoose.model('User');
 var Draw = mongoose.model('Draw');
 
@@ -11,9 +12,22 @@ function usersController(){
 	this.index = function(req,res){ // app.get('/products', products.index);
 		User.find({}).exec(function(err, users){
 			console.log('Step 00: usersController > index()')
-			res.json(users);
+			// console.log(users)
+			var newUserData = []
+
+			for (idx in users){
+				console.log("this is one user:",users[idx])
+				newUserData.push({
+					name: users[idx].name,
+					_id: users[idx]._id,
+					admin: users[idx].admin
+				})
+			}
+
+			res.json(newUserData);
 		})
 	}
+
 	// this.register = function(req,res){
 	// 	console.log('>> server >> controllers >> user.js >> register: ')
 	// 	if(req.body.password != req.body.pw_confirm){
@@ -81,22 +95,23 @@ function usersController(){
 				console.log(errors);
 				res.json(errors);
 			} else{
-				if(user.password != req.body.password){
-					console.log(errors);
-					res.json(errors);
-				}else{
-					req.session.user = {
-						name: user.name,
-						_id: user._id
+				bcrypt.compare( req.body.password, user.password, function(err) {
+					if(err){
+						console.log(err);
+						res.json(err);
 					}
-					var userdata = {
-						name: user.name,
-						_id: user._id,
-						admin: user.admin	
-					}
-
-					res.send(userdata);
+				});
+				req.session.user = {
+					name: user.name,
+					_id: user._id
 				}
+				var userdata = {
+					name: user.name,
+					_id: user._id,
+					admin: user.admin	
+				}
+
+				res.send(userdata);
 			}
 		})
 	},

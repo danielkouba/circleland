@@ -1,6 +1,5 @@
 var myApp = angular.module('myApp', ['ngRoute', 'ui.slider', 'ngStorage']);
 
-console.log("Step 01: client side app.js ")
 
 myApp.config(function ($httpProvider, $routeProvider){
 	$httpProvider.interceptors.push(
@@ -50,6 +49,7 @@ myApp.config(function ($httpProvider, $routeProvider){
 		redirectTo: '/'
 	})
 })
+
 
 
 

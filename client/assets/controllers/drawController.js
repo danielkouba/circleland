@@ -1,7 +1,6 @@
 myApp.controller('drawController', function($scope, $log, $localStorage, drawFactory){
-  	console.log("Step 00: drawController")
 	$scope.$storage = $localStorage;
-
+	
   	$scope.controls = {
                         radius: 127,
                         step: .1,
@@ -9,6 +8,7 @@ myApp.controller('drawController', function($scope, $log, $localStorage, drawFac
 						xslide: 250,
 						yslide: 250
                     };
+
 
 
 	// $scope.reset = function(){

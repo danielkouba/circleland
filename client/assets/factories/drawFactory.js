@@ -1,5 +1,5 @@
 // angular.module('example', ['angular-p5'])
-myApp.factory('drawFactory', ['p5','$http', function(p5, $http) {
+myApp.factory('drawFactory', ['p5','$http', function(p5, $http, $scope) {
   return function(p) {
     var theta = 0;
     var radius = 127;
@@ -35,8 +35,6 @@ myApp.factory('drawFactory', ['p5','$http', function(p5, $http) {
 
         drawCircle(radius, step, h , k);  
     };
-
-
 
       p.refreshSwatch = function() {
           radius = $( "#radius" ).slider( "value" );
@@ -127,19 +125,18 @@ myApp.factory('drawFactory', ['p5','$http', function(p5, $http) {
       var img = canvas.toDataURL().toString();
       img = img.replace('data:image/png;base64,','');
       img = img.replace(' ','+');
-      console.log('CAPTURE: sent image')
       $http.post('/draw/create', {data: img}).then(function(returned_data){
         console.log(returned_data.data)
         // currentImages.push(returned_data.data.url)
-        var card = "  <div class=\"three columns card\"><img ng-src=\"assets/"+returned_data.data.url+"\"></div>"
+        // var card = "  <div class=\"card\"><img ng-src=\"assets"+returned_data.data.url+"\"></div>"
         // document.getElementById("drawGallery").innerHTML = card
+
       })
 
 
     });
 
     document.getElementById("reset").addEventListener("click", function(){
-      console.log("resetting");
       pointArray = [];
     });
 

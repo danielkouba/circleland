@@ -1,4 +1,3 @@
-console.log('Step 03: galleryController')
 
 myApp.controller('galleryController', function($scope, $location, $routeParams, $localStorage, galleryFactory){
 
@@ -13,11 +12,10 @@ myApp.controller('galleryController', function($scope, $location, $routeParams, 
 
 
 	$scope.getDrawings = function(){
-		console.log($scope.userdata);
-		console.log('Step 04: galleryController > getDrawings()')
+		// console.log($scope.userdata);
 		galleryFactory.getdrawings(function(data){
 			$scope.drawings=data;
-			console.log(data);
+			// console.log(data);
 			$location.path('/gallery')
 		})
 	}	
@@ -27,10 +25,9 @@ myApp.controller('galleryController', function($scope, $location, $routeParams, 
 
 	function getUsersDrawings(userid){
 		console.log($scope.userdata);
-		console.log('galleryController: getting users drawings');
 		galleryFactory.getusersdrawings(userid ,function(data){
 			$scope.userdata=data;
-			console.log($scope.userdata);
+			// console.log($scope.userdata);
 			// $location.path('/usergallery');
 		})
 	}
@@ -39,9 +36,9 @@ myApp.controller('galleryController', function($scope, $location, $routeParams, 
 	if ($routeParams.userid){
 		getUsersDrawings($routeParams.userid);
 	} else {
-		console.log('Nah')
+		// console.log('Nah')
 	}
-	console.log($routeParams.userid)
+	// console.log($routeParams.userid)
 
 //Features
 	// likes

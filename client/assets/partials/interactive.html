@@ -1,34 +1,32 @@
 <div>
 	<div class="six columns">
 		<p5 sketch="drawFactory"></p5>
+		<p>Captured!</p>
   	</div>
 	<div class="six columns">
 		<div class="controlpanel" id="controlpanel">
 			<div class="control">
+				<!-- Radius Control -->
 				<label>Radius:</label>
-
                 <div ui-slider id="radius" min="0" max="255" ng-model="controls.radius"></div>
                 <input type="text" class="textcontrol" ng-model="controls.radius" />
-
-
 			</div>
 			<div class="control">
+				<!-- Step Control -->
 				<label for="">Step:</label>
-				<!-- <div id="step"></div> -->
-
-				
                 <div ui-slider id="step" min="0.01" max="3" ng-model="controls.step"></div>
                 <input type="text" class="textcontrol" ng-model="controls.step" />
-
-
 			</div>
 			<div class="control">
+				<!-- Speed Control -->
 				<label for="">Speed:</label>
-				<!-- <div id="speed"></div> -->
 				<div ui-slider id="speed" min="0" max="20" ng-model="controls.speed"></div>
                 <input type="text" class="textcontrol" ng-model="controls.speed" />
 
 			</div>
+
+			<!-- These are XY Controls -->
+
 <!-- 			<div class="control">
 				<label for="">X:</label>
 				<div ui-slider id="xslide" min="0" max="500" ng-model="controls.xslide"></div>
@@ -39,40 +37,54 @@
 				<div ui-slider id="yslide" min="0" max="500" ng-model="controls.yslide"></div>
                 <input type="text" class="textcontrol" ng-model="controls.yslide" />
 			</div> -->
+			
+			<!-- End XY Controls -->
+
+
 			<div class="control">
+			<!-- Toggle Checkbox -->
 			<label for="">Toggle Draw:
 				<input type="checkbox" id="toggleDraw" checked></label>
+			<!-- Toggle Circle -->
 			<label for="">Show Circle:
 				<input type="checkbox" id="circleVisible" checked></label>
+			<!-- Toggle Sound Reactivity -->
 			<!-- <label for="">Sound Reactive:
 				<input type="checkbox" id="soundReactive"></label> -->
+			<!-- Toggle Radius -->
 			<label for="">Radius Visible:
 				<input type="checkbox" id="radiusVisible"></label>
 			</div>
 
+			<!-- Color Controls -->
+
 			<!-- <div class="control">Line Color: <input class="jscolor" id="linecolor" value="646464"></div>
 			<div class="control">Background Color: <input class="jscolor" id="bgcolor" value="FAFAFA"></div> -->
 
+			<!-- End Color Controls -->
+
 			<div class="control">
+				<!-- Capture Button -->
 				<button id="capture" ng-show="$storage.user.name!=null">Capture</button>
+				<!-- Reset Button -->
 				<button id="reset" ng-click="reset()">Reset</button>
 			</div>
-			<div class="control" id="drawGallery"></div>
 		</div>
 	</div>
 
 </div>
 	<script>
 
+			// Initialize Sliders
 				$( "#step").slider({ step: 0.01 });
 				$( "#speed").slider({
 				  orientation: "horizontal",
 				  range: "min",
 				  max: 30,
 				  value: 3
-				  // slide: example.refreshSwatch,
-				  // change: example.refreshSwatch
 				});
 
 	</script>
+
+	<!-- Import Color Swatches -->
 	<!-- <script src="scripts/jscolor.js"></script> -->
