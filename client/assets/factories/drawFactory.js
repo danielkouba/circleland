@@ -125,14 +125,41 @@ myApp.factory('drawFactory', ['p5','$http', function(p5, $http, $scope) {
       var img = canvas.toDataURL().toString();
       img = img.replace('data:image/png;base64,','');
       img = img.replace(' ','+');
+      document.getElementById("capture").disabled = true;
+      document.getElementById("capture").style.color = "#EEEEEE"
+      document.getElementById("capture").style.backgroundColor = "#888888"
+
+      var success;
+
       $http.post('/draw/create', {data: img}).then(function(returned_data){
-        console.log(returned_data.data)
+        console.log(returned_data.data);
+        success = returned_data.data ? true : false;
         // currentImages.push(returned_data.data.url)
         // var card = "  <div class=\"card\"><img ng-src=\"assets"+returned_data.data.url+"\"></div>"
         // document.getElementById("drawGallery").innerHTML = card
 
-      })
+      });
+      console.log("Start the timer!!");
 
+      setTimeout(function(){
+        console.log("We are done");
+        document.getElementById("capture").disabled = false;
+        if (success){
+          console.log("Success");
+          document.getElementById("capture").style.color = "green";
+          document.getElementById("capture").style.backgroundColor = "#DEFACE";
+        } else {
+          console.log("Failure");
+          document.getElementById("capture").style.color = "red";
+          document.getElementById("capture").style.backgroundColor = "#E57A7E";
+        }
+
+        setTimeout(function(){
+          console.log("Returned to normal");
+          document.getElementById("capture").style.color = "black";
+          document.getElementById("capture").style.backgroundColor = "white";
+        }, 1000);
+      }, 5000);
 
     });
 

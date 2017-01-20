@@ -50,7 +50,6 @@ function usersController(){
 
 
 	this.register = function(req,res){ // called by server routes >> app.post('/create', users.create); 
-		console.log('Step 06: server user controller >> create');
 		User.create(req.body, function(err, result){
 			if(err){
 				console.log('There were validation errors', err);
@@ -64,10 +63,6 @@ function usersController(){
 
 	this.drawings = function(req,res){
 		User.findOne({_id: req.params.id }, false, true).populate('images').exec(function(err, drawings){
-			// console.log(" User's Drawings ");
-			// console.log(drawings.name);
-			// console.log("Number of drawings: " + drawings.images.length);
-
 			var data = {
 				name: drawings.name,
 				quantity: drawings.images.length,

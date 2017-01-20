@@ -27,16 +27,18 @@ myApp.controller('galleryController', function($scope, $location, $routeParams, 
 		console.log($scope.userdata);
 		galleryFactory.getusersdrawings(userid ,function(data){
 			$scope.userdata=data;
-			// console.log($scope.userdata);
+			console.log($scope.userdata);
 			// $location.path('/usergallery');
 		})
 	}
 
 
 	if ($routeParams.userid){
+		console.log("We got route params")
+		console.log($scope);
 		getUsersDrawings($routeParams.userid);
 	} else {
-		// console.log('Nah')
+		console.log('Nah')
 	}
 	// console.log($routeParams.userid)
 

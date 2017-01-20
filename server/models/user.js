@@ -10,7 +10,6 @@ var userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 		minlength: 8,
-		maxlength: 32,
 		validate: {
 			validator: function( value ) {
 				//1 number, 1 UpperCase, 1 LowerCase, 1 Special between 8 and 32 characters

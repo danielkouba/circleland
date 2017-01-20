@@ -26,9 +26,11 @@ myApp.controller('userController', function($scope, $location, $localStorage,use
 	$scope.adduser = function(){
 		userFactory.createuser($scope.newUser, function(res){
 			if(res.data.hasOwnProperty('errors')){
+				$scope.regErrors = {};
 				$scope.regErrors = res.data.errors;
+				
 			} else {
-
+				$scope.regErrors = {};
 				$scope.regMessage = {message: "Successfully Signed up. Please log in to continue"};
 				$scope.newUser = {};
 			}

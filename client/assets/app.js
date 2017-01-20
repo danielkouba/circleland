@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ui.slider', 'ngStorage']);
+var myApp = angular.module('myApp', ['ngRoute', 'ui.slider', 'ngStorage', 'ngTouch']);
 
 
 myApp.config(function ($httpProvider, $routeProvider){
