@@ -1,0 +1,67 @@
+
+.modal {
+	/*display: inline-block;*/
+	/*padding: 1em;*/
+}
+/*@media(min-width: 43.75em){
+	.modal{
+		padding:1.5em;
+	}
+}*/
+.modal > label {
+	cursor: pointer;
+	/*display: inline-block;*/
+		/*padding: 0.75em 1.5em;*/
+	transition: all 0.55s;
+	font-weight: normal;
+}
+
+.modal > label > img{
+	width:200px;
+	height:200px;
+}
+
+.modal > label:hover {
+	transform: scale(0.97);
+}
+.modal__overlay {
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	text-align: center;
+	top:0;
+	z-index: 600;
+}
+
+@media (min-width: 50em) {
+	.modal__wrap {
+		padding:1.75em;		
+	}
+}
+
+.modal__wrap > img {
+	height: 90vh;
+}
+
+
+[id^=modal__trigger] {
+	position:absolute;
+	top: -1000px
+}
+
+.modal__overlay {
+	opacity:0;
+	background: rgba(255, 255 , 255, 0.8); 
+	z-index: -100;
+	transform: scale(.5);
+	transition: all .75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+[id^=modal__trigger]:checked ~ .modal__overlay {
+	opacity: 1;
+	background: rgba(0 0 0 0.3);
+	transform: scale(1);
+	z-index: 800;
+}
+

@@ -2,6 +2,26 @@
 	<legend><h2><a href="#/gallery">Gallery</a> >> {{userdata.name}}</h2></legend>
 	<h4>Posts: {{userdata.quantity}}</h4>
 	<div class="three columns card" ng-repeat="image in userdata.images">
-		<img ng-src="assets{{image.url}}" alt="">
+		
+		<div class="modal">
+			<input id="modal__trigger_{{image._id}}" type="checkbox">
+			<label for="modal__trigger_{{image._id}}">
+				<img ng-src="assets{{image.url}}" alt="">
+			</label>
+			<div class="modal__overlay">
+				<div class="modal__wrap">
+					<label for="modal__trigger_{{image._id}}">X</label>
+					<img ng-src="assets{{image.url}}" alt="">
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+		<!-- <img ng-src="assets{{image.url}}" alt=""> -->
 	</div>
 </fieldset>

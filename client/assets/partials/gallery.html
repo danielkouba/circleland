@@ -2,8 +2,24 @@
 	<legend><h2>Gallery</h2></legend>
 	<div class="six columns">&nbsp;</div><div class="three columns"><input type="text" placeholder="Search" ng-model="searchText"></div>
 	<div class="three columns card" ng-repeat="image in drawings | orderBy:'created_at':true | filter:searchText">
-		<img ng-src="assets{{image.url}}" alt="">
-		<p><a href="#/gallery/{{image._user._id}}/user">{{image._user.name}}</a></p>
+		
+
+		<div class="modal">
+			<input id="modal__trigger_{{image._id}}" type="checkbox">
+			<label for="modal__trigger_{{image._id}}">
+				<img ng-src="assets{{image.url}}" alt="">
+				<p><a href="#/gallery/{{image._user._id}}/user">{{image._user.name}}</a></p>
+			</label>
+			<div class="modal__overlay">
+				<div class="modal__wrap">
+					<label for="modal__trigger_{{image._id}}">X</label>
+					<img ng-src="assets{{image.url}}" alt="">
+				</div>
+			</div>
+		</div>
+
+
+	
 	</div>
 </fieldset>
 

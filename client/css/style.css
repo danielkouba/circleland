@@ -11,7 +11,7 @@
   .textcontrol{
     width:3.5em;
   }
-label{
+  .stronglabel {
   font-weight: bold;
   font-size: 1.1em;
 }
